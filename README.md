@@ -9,3 +9,5 @@
 - Compatible with all mobile devices and with a beautiful and pleasant user interface.
 
 Credits to Bedimcode <3
+
+(might update cards on projects section)
