@@ -136,4 +136,38 @@ const sr = ScrollReveal({
 
 sr.reveal('.home__perfil, .about__image, .contact__mail', {origin: 'right'});
 sr.reveal('.home__name, .home__info, .about__container, .section__title-1, .section__title-2, .about__info, .contact__social, .contact__data', {origin: 'left'});
-sr.reveal('.services__card, .projects__card', {interval: 100});
+sr.reveal('.services__card, .projects__card, .credentials__card', {interval: 100});
+
+
+/*=============== CERTIFICATE POPUP MODAL LIGHTBOX ===============*/
+const certModal = document.getElementById('certModal'),
+      modalImg = document.getElementById('modalImg'),
+      closeModalBtn = document.getElementById('certClose'),
+      clickableImages = document.querySelectorAll('.credentials__img-clickable');
+
+if(clickableImages.length > 0 && certModal && modalImg) {
+    clickableImages.forEach(image => {
+        image.addEventListener('click', () => {
+            modalImg.src = image.src; // Transfer preview source to popup container
+            modalImg.alt = image.alt;
+            
+            certModal.classList.add('open-modal');
+            document.body.style.overflow = 'hidden'; // Prevents background body scrolling
+        });
+    });
+
+    // Function to close modal with transition delay
+    const closeModal = () => {
+        certModal.classList.remove('open-modal');
+        document.body.style.overflow = ''; // Restores window body scrolling
+    };
+
+    closeModalBtn.addEventListener('click', closeModal);
+
+    // Close window instantly if clicked anywhere on the background container backdrop
+    certModal.addEventListener('click', (e) => {
+        if (e.target === certModal) {
+            closeModal();
+        }
+    });
+}

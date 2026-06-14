@@ -40,6 +40,9 @@
                      <a href="#services" class="nav__link">Services</a>
                   </li>
                   <li class="nav__item">
+                     <a href="#credentials" class="nav__link">Credentials</a>
+                  </li>
+                  <li class="nav__item">
                      <a href="#projects" class="nav__link">Projects</a>
                   </li>
                   <li class="nav__item nav__link-contact">
@@ -232,6 +235,45 @@
                         your application's functionality, 
                         ensuring reliability and efficiency.
                      </p>
+                  </div>
+               </article>
+            </div>
+         </section>
+
+         <!--==================== CREDENTIALS ====================-->
+         <section class="credentials section" id="credentials">
+            <h2 class="section__title-1">
+               <span>Credentials.</span>
+            </h2>
+
+            <div class="credentials__container container grid">
+               <article class="credentials__card">
+                  <div class="credentials__image">
+                     <img src="assets/img/TOPCIT.jpg" alt="TOPCIT Tier-2 Elite Certification" class="credentials__img credentials__img-clickable">
+                  </div>
+
+                  <div class="credentials__content">
+                     <h3 class="credentials__title">TOPCIT Level 2 — Elite IT & Computing Power Competency</h3>
+                  </div>
+               </article>
+
+               <article class="credentials__card">
+                  <div class="credentials__image">
+                     <img src="assets/img/AWS.jpg" alt="Mastery of AWS Serverless Ecosystems" class="credentials__img credentials__img-clickable">
+                  </div>
+
+                  <div class="credentials__content">
+                     <h3 class="credentials__title">Architecting Infinite Scale: Advanced AWS CDK & TypeScript Serverless Systems</h3>
+                  </div>
+               </article>
+
+               <article class="credentials__card">
+                  <div class="credentials__image">
+                     <img src="assets/img/SDPT.jpg" alt="SDPT Elite Software Engineering Breakthrough" class="credentials__img credentials__img-clickable">
+                  </div>
+
+                  <div class="credentials__content">
+                     <h3 class="credentials__title">Breaking The Matrix: Escaping Tutorial Hell & Mastering Production-Ready Workflows</h3>
                   </div>
                </article>
             </div>
@@ -467,5 +509,11 @@
 
       <!--=============== MAIN JS ===============-->
       <script src="assets/js/main.js"></script>
+      <div class="cert-modal" id="certModal">
+         <span class="cert-modal__close" id="certClose">&times;</span>
+         <div class="cert-modal__container">
+            <img class="cert-modal__content" id="modalImg" src="" alt="Certificate Large View">
+         </div>
+      </div>
    </body>
 </html>

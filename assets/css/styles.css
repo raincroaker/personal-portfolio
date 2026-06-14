@@ -1633,3 +1633,148 @@ body.dark-theme{
   } */
 
 }
+
+/*=============== CREDENTIALS =============*/
+.credentials {
+  background-color: var(--body-color);
+  transition: background-color .4s;
+}
+
+.credentials__container {
+  row-gap: 2rem;
+}
+
+.credentials__card {
+  padding: 1rem;
+  background-color: var(--container-color);
+  border: 4px solid var(--black-color);
+  transition: background-color .4s, transform .4s;
+}
+
+.credentials__image {
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 1rem;
+  background-color: var(--black-color-light); 
+  aspect-ratio: 4 / 3; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.credentials__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* FIX: Forces large certificates to snap to the top instead of showing the bottom */
+  object-position: top center; 
+}
+
+.credentials__img-clickable {
+  cursor: pointer;
+  transition: transform .3s ease;
+}
+
+.credentials__img-clickable:hover {
+  transform: scale(1.03);
+}
+
+.credentials__content {
+  text-align: center;
+  padding-block: .5rem;
+}
+
+.credentials__title {
+  font-size: var(--h3-font-size);
+  color: var(--title-color);
+}
+
+.credentials__card:hover {
+  background-color: var(--white-color);
+  transform: translateY(-.25rem);
+}
+
+/* Dark theme matching */
+.dark-theme .credentials__card {
+  background-color: hsl(0, 0%, 13%);
+}
+.dark-theme .credentials__card:hover {
+  background-color: var(--container-color);
+}
+
+/*=============== INTERACTIVE POPUP MODAL ===============*/
+.cert-modal {
+  display: none; 
+  position: fixed; 
+  z-index: 2000; /* High index to cover navigation bar completely */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto; 
+  background-color: rgba(0, 0, 0, 0.85); /* Smooth dark background blur backdrop */
+  backdrop-filter: blur(5px);
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity .4s ease;
+}
+
+/* Modal Open State class applied via JavaScript */
+.cert-modal.open-modal {
+  display: flex;
+  opacity: 1;
+}
+
+.cert-modal__container {
+  max-width: 85%;
+  max-height: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: scale(0.7);
+  transition: transform .4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.cert-modal.open-modal .cert-modal__container {
+  transform: scale(1); /* Smooth expansion zoom-in animation */
+}
+
+.cert-modal__content {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 80vh;
+  object-fit: contain;
+  border: 4px solid #fff;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+}
+
+.cert-modal__close {
+  position: absolute;
+  top: 2rem;
+  right: 3rem;
+  color: #fff;
+  font-size: 3rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.3s ease, transform 0.3s ease;
+  user-select: none;
+}
+
+.cert-modal__close:hover {
+  color: var(--first-color);
+  transform: scale(1.1);
+}
+
+/* Responsive adjustments matching existing structural container grids */
+@media screen and (min-width: 576px) {
+  .credentials__container { grid-template-columns: 350px; justify-content: center; }
+}
+@media screen and (min-width: 768px) {
+  .credentials__container { grid-template-columns: repeat(2, 350px); }
+  .cert-modal__container { max-width: 70%; }
+}
+@media screen and (min-width: 1150px) {
+  .credentials__container { grid-template-columns: repeat(3, 360px); padding-block: 3rem 1rem; }
+}
